@@ -481,12 +481,20 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:DemoAPI.Common.DateConvertor.CompareStartDate(System.DateTime)">
+            <summary>
+            Extension method to indicate whether an employee has an 
+            anniversary within the next 30 days
+            </summary>
+            <param name="startDate"></param>
+            <returns></returns>
+        </member>
         <member name="T:DemoAPI.Controllers.EmployeeController">
             <summary>
             Information about people
             </summary>
         </member>
-        <member name="M:DemoAPI.Controllers.EmployeeController.GetFirstNames(System.Int32,System.Int32)">
+        <member name="M:DemoAPI.Controllers.EmployeeController.GetFirstNames">
             <summary>
             Gets a list of first name of all users
             </summary>
@@ -506,6 +514,32 @@
             <param name="userId">Unique identifier for this person</param>
             <param name="age">We want to know their age</param>
             <returns>A list of first names</returns>
+        </member>
+        <member name="M:DemoAPI.DataStore.EmployeeRepository.ShowEmployees(System.Collections.Generic.List{DemoAPI.Models.Employee})">
+            <summary>
+            Display list of employees taken from data source
+            </summary>
+            <param name="employeeList"></param>
+        </member>
+        <member name="M:DemoAPI.DataStore.EmployeeRepository.AddEmployeeManually(System.Collections.Generic.List{DemoAPI.Models.Employee})">
+            <summary>
+            Add new employee manually
+            </summary>
+            <param name="employeeList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DemoAPI.DataStore.EmployeeRepository.EditEmployee(System.Collections.Generic.List{DemoAPI.Models.Employee})">
+            <summary>
+            Edit DOB field of employee using employeeID
+            </summary>
+            <param name="employeeList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DemoAPI.DataStore.EmployeeRepository.RemoveEmployee(System.Collections.Generic.List{DemoAPI.Models.Employee})">
+            <summary>
+            Remove an employee from current list using employeeID
+            </summary>
+            <param name="employeeList"></param>
         </member>
         <member name="T:DemoAPI.Models.Person">
             <summary>
