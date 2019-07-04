@@ -183,8 +183,8 @@ namespace DemoAPI.DataStore
             //Clear list and load content from csv file
             employeeList.Clear();
             // retrieve path of data from config file
-            // string databasePath = ConfigurationManager.AppSettings["CsvDatabasePath"];
-            string databasePath = @"C:\Users\CodeNation 3\source\repos\WebAPIDemoApp\DemoAPI\DataStore\Employees.csv";
+             string databasePath = ConfigurationManager.AppSettings["CsvDatabasePath"];
+           // string databasePath = @"C:\Users\CodeNation 3\source\repos\WebAPIDemoApp\DemoAPI\DataStore\Employees.csv";
             var line = File.ReadAllLines(databasePath);
             foreach (var x in line)
             {

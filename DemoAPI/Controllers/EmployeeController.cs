@@ -1,4 +1,5 @@
-﻿using DemoAPI.DataStore;
+﻿using DemoAPI.Common;
+using DemoAPI.DataStore;
 using DemoAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -26,17 +27,79 @@ namespace DemoAPI.Controllers
 
         }
 
-        // GET: api/People
+        // GET: api/Employee
         public List<Employee> Get()
         {
             return employeeList;
         }
 
-        // GET: api/People/5
+        // GET: api/Employee/5
         public Employee Get(int id)
         {
             return employeeList.Where(x => x.EmployeeId == id).FirstOrDefault();
         }
+
+        [Route("api/Employee/GetEmployeesPerTown")]
+        [HttpGet]
+        // GET: api/Employee/GetEmployeesPerTown
+        public List<string> GetEmployeesPerTown()
+        {
+            List<string> output = new List<string>();
+            var results = employeeList
+                          .GroupBy(e => e.HomeTown)
+                          .Select(e => new { Hometown = e.Key, NumberOfEmployees = e.Count() });
+
+            //Console.WriteLine("Number of employees per town.");
+
+            foreach (var x in results)
+            {
+                output.Add(x.ToString());
+                //Console.WriteLine($"The number of employees from {x.Hometown} is {x.NumberOfEmployees}");
+            }
+
+            return output;
+        }
+
+        [Route("api/Employee/GetAverageEmployeeAgeInDept")]
+        [HttpGet]
+        // GET: api/Employee/GetAverageEmployeeAgeInDept
+        public List<string> GetAverageEmployeeAgeInDept()
+        {
+            List<string> output = new List<string>();
+            var results = employeeList
+                          .GroupBy(e => e.Department)
+                          .Select(e => new { Department = e.Key, NumberOfEmployees = e.Count(), TotalAge = e.Sum(x => x.Age) });
+
+            
+
+
+            foreach (var x in results)
+            {
+               // output.Add(x.ToString());
+                output.Add($"The average age for {x.Department} is {Math.Round((float)x.TotalAge / (float)x.NumberOfEmployees, 1, MidpointRounding.AwayFromZero)}");
+              //  Console.WriteLine($"The average age for {x.Department} is {Math.Round((float)x.TotalAge / (float)x.NumberOfEmployees, 1, MidpointRounding.AwayFromZero)}");
+            }
+            return output;
+        }
+
+        [Route("api/Employee/ShowEmployeeWithAnniversary")]
+        [HttpGet]
+        public  List<string> ShowEmployeeWithAnniversary()
+        {
+            List<string> output = new List<string>();
+            foreach (var employee in employeeList)
+            {
+                if (employee.StartDate.CompareStartDate())
+                {
+                    output.Add($"{employee.FirstName} with a start date of {employee.StartDate} has an anniversary within 30 days");
+                   // Console.WriteLine($"{employee.FirstName} with a start date of {employee.StartDate} has an anniversary within 30 days");
+                };
+
+            }
+
+            return output;
+        }
+
 
         /// <summary>
         /// Gets a list of first name of all users
@@ -72,9 +135,7 @@ namespace DemoAPI.Controllers
             if (editItem != null)
             {
                 
-                
-                
-
+               
                 editItem.DOB = value;
                 
             }
