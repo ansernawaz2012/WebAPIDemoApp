@@ -120,13 +120,25 @@ namespace DemoAPI.Controllers
             return output;
         }
 
+        /// <summary>
+        /// Add new employee
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
         // POST: api/employee
         public List<Employee> Post([FromBody]Employee val)
         {
              employeeList.Add(val);
+            _repository.AddEmployeeManually(employeeList);
             return employeeList;
         }
 
+        /// <summary>
+        /// Edit DOB of existing employee
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         // PUT: api/employee/5
         public List<Employee> Put(int id, [FromBody]DateTime value)
         {

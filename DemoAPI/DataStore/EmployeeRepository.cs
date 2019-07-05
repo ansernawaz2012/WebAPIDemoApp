@@ -57,29 +57,29 @@ namespace DemoAPI.DataStore
         /// <returns></returns>
         public List<Employee> AddEmployeeManually(List<Employee> employeeList)
         {
-            Console.Write("Enter employee ID: ");
-            int employeeId = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter first name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("Enter last name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Enter date of birth: ");
-            string stringDOB = Console.ReadLine();
+            //Console.Write("Enter employee ID: ");
+            //int employeeId = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter first name: ");
+            //string firstName = Console.ReadLine();
+            //Console.Write("Enter last name: ");
+            //string lastName = Console.ReadLine();
+            //Console.Write("Enter date of birth: ");
+            //string stringDOB = Console.ReadLine();
 
-            DateTime DOB = DateConvertor.StringToDateObject(stringDOB);
+           // DateTime DOB = DateConvertor.StringToDateObject(stringDOB);
 
-            Console.Write("Enter start date: ");
-            string stringStartDate = Console.ReadLine();
+            //Console.Write("Enter start date: ");
+            //string stringStartDate = Console.ReadLine();
 
-            DateTime startDate = DateConvertor.StringToDateObject(stringStartDate);
+            //DateTime startDate = DateConvertor.StringToDateObject(stringStartDate);
 
-            Console.Write("Enter home town: ");
-            string homeTown = Console.ReadLine();
-            Console.Write("Enter department: ");
-            string department = Console.ReadLine();
+            //Console.Write("Enter home town: ");
+            //string homeTown = Console.ReadLine();
+            //Console.Write("Enter department: ");
+            //string department = Console.ReadLine();
 
-            Employee newEmployee = new Employee(employeeId, firstName, lastName, DOB, startDate, homeTown, department);
-            employeeList.Add(newEmployee);
+            //Employee newEmployee = new Employee(employeeId, firstName, lastName, DOB, startDate, homeTown, department);
+            //employeeList.Add(newEmployee);
 
             //string newEmployeeDetails = $"{employeeId},{firstName},{lastName},{stringDOB},{stringStartDate},{homeTown},{department}\n";
 
@@ -90,8 +90,8 @@ namespace DemoAPI.DataStore
 
             WriteToCsv(employeeList);
 
-            Console.WriteLine("New employee added");
-            Console.WriteLine("------------------");
+            //Console.WriteLine("New employee added");
+            //Console.WriteLine("------------------");
 
             return employeeList;
 
