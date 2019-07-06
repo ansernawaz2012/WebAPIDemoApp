@@ -137,22 +137,22 @@ namespace DemoAPI.DataStore
         /// <param name="employeeList"></param>
         public List<Employee> RemoveEmployee(List<Employee> employeeList)
         {
-            Console.Write("Enter the ID of the employee to be removed:");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter the ID of the employee to be removed:");
+            //int id = Convert.ToInt32(Console.ReadLine());
 
 
-            var removeItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (removeItem != null)
-            {
-                Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
-                employeeList.Remove(removeItem);
+            //var removeItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+            //if (removeItem != null)
+            //{
+            //    Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
+            //    employeeList.Remove(removeItem);
                 WriteToCsv(employeeList);
 
-            }
-            else
-            {
-                Console.WriteLine("Record not found");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Record not found");
+            //}
 
             return employeeList;
 

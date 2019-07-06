@@ -167,7 +167,7 @@ namespace DemoAPI.Controllers
             {
                // Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
                  employeeList.Remove(removeItem);
-                
+                _repository.RemoveEmployee(employeeList);
 
             }
             else
