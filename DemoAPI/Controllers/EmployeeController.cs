@@ -120,31 +120,43 @@ namespace DemoAPI.Controllers
             return output;
         }
 
+        /// <summary>
+        /// Add new employee
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
         // POST: api/employee
         public List<Employee> Post([FromBody]Employee val)
         {
-             employeeList.Add(val);
+            employeeList.Add(val);
+            _repository.AddEmployeeManually(employeeList);
             return employeeList;
         }
 
+        /// <summary>
+        /// Edit DOB of existing employee
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         // PUT: api/employee/5
         public List<Employee> Put(int id, [FromBody]DateTime value)
         {
-            
+
             var editItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
             if (editItem != null)
             {
-                
-               
+
+
                 editItem.DOB = value;
-                
+                _repository.EditEmployee(employeeList);
             }
             else
             {
                 Console.WriteLine("Record not found");
             }
             return employeeList;
-            
+
         }
 
         // DELETE: api/employee/5
@@ -153,9 +165,9 @@ namespace DemoAPI.Controllers
             var removeItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
             if (removeItem != null)
             {
-               // Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
-                 employeeList.Remove(removeItem);
-                
+                // Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
+                employeeList.Remove(removeItem);
+                _repository.RemoveEmployee(employeeList);
 
             }
             else

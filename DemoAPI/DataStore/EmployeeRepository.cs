@@ -57,29 +57,29 @@ namespace DemoAPI.DataStore
         /// <returns></returns>
         public List<Employee> AddEmployeeManually(List<Employee> employeeList)
         {
-            Console.Write("Enter employee ID: ");
-            int employeeId = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter first name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("Enter last name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Enter date of birth: ");
-            string stringDOB = Console.ReadLine();
+            //Console.Write("Enter employee ID: ");
+            //int employeeId = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter first name: ");
+            //string firstName = Console.ReadLine();
+            //Console.Write("Enter last name: ");
+            //string lastName = Console.ReadLine();
+            //Console.Write("Enter date of birth: ");
+            //string stringDOB = Console.ReadLine();
 
-            DateTime DOB = DateConvertor.StringToDateObject(stringDOB);
+            // DateTime DOB = DateConvertor.StringToDateObject(stringDOB);
 
-            Console.Write("Enter start date: ");
-            string stringStartDate = Console.ReadLine();
+            //Console.Write("Enter start date: ");
+            //string stringStartDate = Console.ReadLine();
 
-            DateTime startDate = DateConvertor.StringToDateObject(stringStartDate);
+            //DateTime startDate = DateConvertor.StringToDateObject(stringStartDate);
 
-            Console.Write("Enter home town: ");
-            string homeTown = Console.ReadLine();
-            Console.Write("Enter department: ");
-            string department = Console.ReadLine();
+            //Console.Write("Enter home town: ");
+            //string homeTown = Console.ReadLine();
+            //Console.Write("Enter department: ");
+            //string department = Console.ReadLine();
 
-            Employee newEmployee = new Employee(employeeId, firstName, lastName, DOB, startDate, homeTown, department);
-            employeeList.Add(newEmployee);
+            //Employee newEmployee = new Employee(employeeId, firstName, lastName, DOB, startDate, homeTown, department);
+            //employeeList.Add(newEmployee);
 
             //string newEmployeeDetails = $"{employeeId},{firstName},{lastName},{stringDOB},{stringStartDate},{homeTown},{department}\n";
 
@@ -90,8 +90,8 @@ namespace DemoAPI.DataStore
 
             WriteToCsv(employeeList);
 
-            Console.WriteLine("New employee added");
-            Console.WriteLine("------------------");
+            //Console.WriteLine("New employee added");
+            //Console.WriteLine("------------------");
 
             return employeeList;
 
@@ -106,26 +106,26 @@ namespace DemoAPI.DataStore
         public List<Employee> EditEmployee(List<Employee> employeeList)
         {
 
-            Console.Write("Enter the ID of the employee you wish to edit:");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter the ID of the employee you wish to edit:");
+            //int id = Convert.ToInt32(Console.ReadLine());
 
 
-            var editItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (editItem != null)
-            {
-                Console.WriteLine($"Record found - Name: {editItem.FirstName} {editItem.LastName} ID: {editItem.EmployeeId} DOB: {editItem.DOB} StartDate: {editItem.StartDate} ");
-                Console.WriteLine($"Enter new date of birth for {editItem.FirstName}");
-                var stringDOB = Console.ReadLine();
-                var DOB = DateConvertor.StringToDateObject(stringDOB);
+            //var editItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+            //if (editItem != null)
+            //{
+            //    Console.WriteLine($"Record found - Name: {editItem.FirstName} {editItem.LastName} ID: {editItem.EmployeeId} DOB: {editItem.DOB} StartDate: {editItem.StartDate} ");
+            //    Console.WriteLine($"Enter new date of birth for {editItem.FirstName}");
+            //    var stringDOB = Console.ReadLine();
+            //    var DOB = DateConvertor.StringToDateObject(stringDOB);
 
-                editItem.DOB = DOB;
+            //    editItem.DOB = DOB;
                 WriteToCsv(employeeList);
-                Console.WriteLine("Record updated!");
-            }
-            else
-            {
-                Console.WriteLine("Record not found");
-            }
+            //    Console.WriteLine("Record updated!");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Record not found");
+            //}
 
             return employeeList;
         }
@@ -137,22 +137,22 @@ namespace DemoAPI.DataStore
         /// <param name="employeeList"></param>
         public List<Employee> RemoveEmployee(List<Employee> employeeList)
         {
-            Console.Write("Enter the ID of the employee to be removed:");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter the ID of the employee to be removed:");
+            //int id = Convert.ToInt32(Console.ReadLine());
 
 
-            var removeItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (removeItem != null)
-            {
-                Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
-                employeeList.Remove(removeItem);
-                WriteToCsv(employeeList);
+            //var removeItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+            //if (removeItem != null)
+            //{
+            //    Console.WriteLine($"{removeItem.FirstName} with ID {removeItem.EmployeeId} will be removed!");
+            //    employeeList.Remove(removeItem);
+            WriteToCsv(employeeList);
 
-            }
-            else
-            {
-                Console.WriteLine("Record not found");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Record not found");
+            //}
 
             return employeeList;
 
