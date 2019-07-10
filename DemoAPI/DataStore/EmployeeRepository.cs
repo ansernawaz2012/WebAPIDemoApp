@@ -106,26 +106,26 @@ namespace DemoAPI.DataStore
         public List<Employee> EditEmployee(List<Employee> employeeList)
         {
 
-            Console.Write("Enter the ID of the employee you wish to edit:");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter the ID of the employee you wish to edit:");
+            //int id = Convert.ToInt32(Console.ReadLine());
 
 
-            var editItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
-            if (editItem != null)
-            {
-                Console.WriteLine($"Record found - Name: {editItem.FirstName} {editItem.LastName} ID: {editItem.EmployeeId} DOB: {editItem.DOB} StartDate: {editItem.StartDate} ");
-                Console.WriteLine($"Enter new date of birth for {editItem.FirstName}");
-                var stringDOB = Console.ReadLine();
-                var DOB = DateConvertor.StringToDateObject(stringDOB);
+            //var editItem = employeeList.FirstOrDefault(e => e.EmployeeId == id);
+            //if (editItem != null)
+            //{
+            //    Console.WriteLine($"Record found - Name: {editItem.FirstName} {editItem.LastName} ID: {editItem.EmployeeId} DOB: {editItem.DOB} StartDate: {editItem.StartDate} ");
+            //    Console.WriteLine($"Enter new date of birth for {editItem.FirstName}");
+            //    var stringDOB = Console.ReadLine();
+            //    var DOB = DateConvertor.StringToDateObject(stringDOB);
 
-                editItem.DOB = DOB;
+            //    editItem.DOB = DOB;
                 WriteToCsv(employeeList);
-                Console.WriteLine("Record updated!");
-            }
-            else
-            {
-                Console.WriteLine("Record not found");
-            }
+            //    Console.WriteLine("Record updated!");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Record not found");
+            //}
 
             return employeeList;
         }

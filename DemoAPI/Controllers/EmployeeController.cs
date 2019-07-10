@@ -149,7 +149,7 @@ namespace DemoAPI.Controllers
                 
                
                 editItem.DOB = value;
-                
+                _repository.EditEmployee(employeeList);
             }
             else
             {
@@ -158,6 +158,8 @@ namespace DemoAPI.Controllers
             return employeeList;
             
         }
+
+       
 
         // DELETE: api/employee/5
         public List<Employee> Delete(int id)
